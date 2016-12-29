@@ -1,11 +1,18 @@
 import './app.less';
+import Masonry from 'masonry-layout';
 
 export class TodoAppController {
   /**
    * @param {TodoList} todoList
    */
-  constructor(todoList) {
+  constructor(todoList, $http) {
     "ngInject";
+
+    console.log(document.getElementById('app-title'));
+    var msnry = new Masonry( '.grid', {
+    });
+
+
     this.todos = todoList;
     this.photos = [
       {
@@ -55,6 +62,34 @@ export class TodoAppController {
 
 export default {
   template: `
+    <h1 id="app-title">This is Todo app</h1>
+    <section class="grid">
+      <div class="grid-item">
+        <div class="grid-item-content"></div>
+      </div><div class="grid-item">
+        <div class="grid-item-content"></div>
+      </div><div class="grid-item">
+        <div class="grid-item-content"></div>
+      </div><div class="grid-item">
+        <div class="grid-item-content"></div>
+      </div><div class="grid-item">
+        <div class="grid-item-content"></div>
+      </div><div class="grid-item">
+        <div class="grid-item-content"></div>
+      </div><div class="grid-item">
+        <div class="grid-item-content"></div>
+      </div><div class="grid-item">
+        <div class="grid-item-content"></div>
+      </div><div class="grid-item">
+        <div class="grid-item-content"></div>
+      </div><div class="grid-item">
+        <div class="grid-item-content"></div>
+      </div><div class="grid-item">
+        <div class="grid-item-content"></div>
+      </div><div class="grid-item">
+        <div class="grid-item-content"></div>
+      </div>
+    </section>
     <section class="todoapp">
       <section class="main">
         <div masonry class="mas-container">

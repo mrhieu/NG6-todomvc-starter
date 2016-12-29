@@ -11,12 +11,6 @@ module.exports = {
        { test: /\.html$/, loader: 'raw' },
        { test: /\.less$/, loader: 'style!css!less' },
        { test: /\.css$/, loader: 'style!css' },
-       {
-         test: /masonry-layout/,
-         // https://github.com/metafizzy/isotope/issues/979
-        //  test: /isotope\-|fizzy\-ui\-utils|desandro\-|masonry|masonry\-layout|outlayer|item|get\-size|doc\-ready|eventie|eventemitter|imagesloaded/,
-         loader: 'imports?define=>false&this=>window'
-       }
     ]
   },
   plugins: [
@@ -37,21 +31,17 @@ module.exports = {
         return module.resource && module.resource.indexOf(path.resolve(__dirname, 'client')) === -1;
       }
     }),
-
-    // new webpack.ProvidePlugin({
-    //   item: './item'
-    // })
   ],
-  resolve: {
-    root: [
-      path.join(__dirname, "..", "gulp", "node_modules")
-    ],
-    alias: {
-      'masonry-layout': 'masonry-layout/dist/masonry.pkgd.js',
-      'item$': 'node_modules/outlayer/item.js',
-      // './item': '../node_modules/outlayer/item.js'
-      // './': './node_modules'
-    },
-    extensions: ['', '.js']
-  }
+  // resolve: {
+  //   root: [
+  //     path.join(__dirname, "..", "gulp", "node_modules")
+  //   ],
+  //   alias: {
+  //     'masonry-layout': 'masonry-layout/dist/masonry.pkgd.js',
+  //     'item': '/outlayer/item.js',
+  //     // './item': '../node_modules/outlayer/item.js'
+  //     // './': './node_modules'
+  //   },
+  //   extensions: ['', '.js']
+  // }
 };
