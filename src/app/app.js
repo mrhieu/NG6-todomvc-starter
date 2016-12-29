@@ -3,11 +3,16 @@ import Components from './components/components';
 import services from './services/services';
 import 'normalize.css';
 
+// import 'item';
+import 'masonry-layout';
+// import 'angular-masonry';
+
 import AppComponent from './app.component';
 
 angular.module('app', [
   Components.name,
-  services.name
+  services.name,
+  // 'wu.masonry'
 ])
 .component('app', AppComponent);
 

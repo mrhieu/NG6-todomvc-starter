@@ -7,6 +7,25 @@ export class TodoAppController {
   constructor(todoList) {
     "ngInject";
     this.todos = todoList;
+    this.photos = [
+      {
+        imgUrl: 'https://dl.dropboxusercontent.com/u/15733222/img.png'
+      },{
+        imgUrl: 'https://dl.dropboxusercontent.com/u/15733222/img.png'
+      },{
+        imgUrl: 'https://dl.dropboxusercontent.com/u/15733222/img.png'
+      },{
+        imgUrl: 'https://dl.dropboxusercontent.com/u/15733222/img.png'
+      },{
+        imgUrl: 'https://dl.dropboxusercontent.com/u/15733222/img.png'
+      },{
+        imgUrl: 'https://dl.dropboxusercontent.com/u/15733222/img.png'
+      },{
+        imgUrl: 'https://dl.dropboxusercontent.com/u/15733222/img.png'
+      },{
+        imgUrl: 'https://dl.dropboxusercontent.com/u/15733222/img.png'
+      }
+    ];
   }
 
   onSave(task) {
@@ -37,19 +56,11 @@ export class TodoAppController {
 export default {
   template: `
     <section class="todoapp">
-      <section class="header">
-        <h1>todos</h1>
-        <header class="header-input">
-          <todo-text-input
-            placeholder="What needs to get done?"
-            on-save="$ctrl.onSave(task)">
-          </todo-text-input>
-        </header>
-      </section>
       <section class="main">
-        <todo-batch-toggle on-toggle="$ctrl.onToggleAll()" todos="$ctrl.todos.list" ng-if="$ctrl.todos.hasTasks()"></todo-batch-toggle>
-        <div class="todo-list">
-          <todo-item todo="todo" ng-repeat="todo in $ctrl.todos.filteredList"></todo-item>
+        <div masonry class="mas-container">
+          <div class="masonry-brick" ng-repeat="photo in vm.photos track by $index">
+              <img ng-src="{{ photo.imgUrl }}" alt="A masonry brick" width="36">
+          </div>
         </div>
       </section>
       <todo-footer ng-if="$ctrl.todos.hasTasks()" todos="$ctrl.todos">
@@ -57,5 +68,6 @@ export default {
       </todo-footer>
     </section>
   `,
-  controller: TodoAppController
+  controller: TodoAppController,
+  controllerAs: 'vm'
 };
